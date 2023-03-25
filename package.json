@@ -15,7 +15,8 @@
     "start": "cross-env NODE_ENV=development gulp start",
     "nomin": "cross-env NODE_ENV=development gulp nomin",
     "imagemin": "gulp imagemin",
-    "webp": "gulp webp"
+    "webp": "gulp webp",
+    "deploy": "gh-pages -d build"
   },
   "editorconfig-cli": [
     "*.json",
@@ -38,13 +39,12 @@
     "del": "6.1.1",
     "duplicate-package-checker-webpack-plugin": "3.0.0",
     "eslint": "7.32.0",
+    "gh-pages": "^5.0.0",
     "gulp": "4.0.2",
     "gulp-cached": "1.1.1",
     "gulp-csso": "4.0.1",
     "gulp-group-css-media-queries": "1.2.2",
     "gulp-imagemin": "7.1.0",
-    "imagemin-mozjpeg": "10.0.0",
-    "imagemin-svgo": "10.0.1",
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "9.0.1",
     "gulp-pug": "5.0.0",
@@ -52,13 +52,15 @@
     "gulp-sass": "5.1.0",
     "gulp-svgstore": "9.0.0",
     "gulp-webp": "4.0.1",
+    "imagemin-mozjpeg": "10.0.0",
     "imagemin-pngquant": "9.0.2",
+    "imagemin-svgo": "10.0.1",
     "postcss-scss": "^4.0.6",
     "sass": "1.53.0",
     "stylelint": "^14.16.1",
+    "stylelint-config-htmlacademy": "1.1.4",
     "webpack": "4.42.0",
-    "webpack-stream": "5.2.1",
-    "stylelint-config-htmlacademy": "1.1.4"
+    "webpack-stream": "5.2.1"
   },
   "engines": {
     "node": ">=16.15.1"
