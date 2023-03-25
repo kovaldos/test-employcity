@@ -1,10 +1,8 @@
 .btn {
   display: inline-flex;
   padding: 10px 20px;
-
   color: $color-default-white;
-
-  background-color: $color-neon-blue;
+  background-color: $color-primary;
   border: none;
   cursor: pointer;
 
@@ -12,6 +10,9 @@
 
   &--red {
     background-color: $color-torch-red;
+  }
+  &--reset {
+    background-color: $color-transparent;
   }
 
   &:disabled {

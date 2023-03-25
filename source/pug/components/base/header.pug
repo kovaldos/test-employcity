@@ -2,16 +2,20 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
-        text: "Главная"
+        href: "/business",
+        text: "Бизнес"
       },
       {
-        href: "#",
-        text: "Страница 2"
+        href: "/about-us",
+        text: "О нас"
       },
       {
-        href: "#",
-        text: "Страница 3"
+        href: "/price",
+        text: "Цены"
+      },
+      {
+        href: "/order",
+        text: "Оформить заказ"
       },
     ]
 
@@ -19,13 +23,13 @@ mixin header(headerMods, currentUrl)
     .container
       if(currentUrl === "index.html")
         //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
+        span.header__logo
+          +picture("content", "logo", "png", 247, 35, "Site logo")
       else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          +picture("content", "logo", "png", 247, 35, "Site logo")
       nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
+        .main-nav__wrapper(data-burger-body)
           ul.main-nav__list
             each link in headerLinks
               - const activeState = currentUrl === link.href
@@ -34,3 +38,8 @@ mixin header(headerMods, currentUrl)
                   span.main-nav__link.is-active=link.text
                 else
                   a.main-nav__link(href=link.href)=link.text
+        button.btn.btn--reset.main-nav__toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false" data-burger-btn)
+          svg(width='100' height='100' viewBox='0 0 100 100')
+            path.line.line1(d='M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058')
+            path.line.line2(d='M 20,50 H 80')
+            path.line.line3(d='M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942')

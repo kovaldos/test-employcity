@@ -1,27 +1,113 @@
 .main-nav {
+  &__wrapper {
+    @include vp-1023 {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 50vw;
+      height: 100vh;
+      min-height: 100vh;
+      background-color: rgba($color-black-russian, 0.9);
+      transform: translateX(0);
+      transition: transform $trans-default;
+      z-index: 10;
+    }
+    @include vp-767 {
+      width: 100vw;
+    }
+    &.is-active {
+      transform: translateX(-100%);
+    }
+  }
   &__list {
     display: flex;
     margin: 0;
-    margin-right: 20px;
-    margin-left: 60px;
     padding: 0;
-
     list-style: none;
+    width: 100%;
+    height: 100%;
+    @include vp-1023 {
+      flex-direction: column;
+      padding: 100px 16px;
+    }
   }
 
   &__item {
-    margin-right: 20px;
+    &:not(:last-of-type) {
+      margin-right: 60px;
+      @include vp-1023 {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
   }
 
   &__link {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
     color: $color-default-white;
-
+    text-transform: uppercase;
+    padding: 1rem;
+    margin: -1rem;
+    transition: color $trans-default;
+    @include hover-focus {
+      color: $color-primary;
+    }
     &.is-active {
-      opacity: 0.6;
+    }
+    @include vp-1023 {
+      font-size: 1rem;
+      line-height: 1.2;
     }
   }
 
   &__toggle {
     display: none;
+    width: 40px;
+    height: 40px;
+    @include vp-1023 {
+      display: block;
+      position: relative;
+      z-index: 11;
+      padding: 0;
+    }
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
   }
+}
+.line {
+  fill: none;
+  stroke: $color-primary;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 30 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.is-active .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.is-active .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.is-active .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
 }
