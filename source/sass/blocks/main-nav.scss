@@ -7,7 +7,7 @@
       width: 50vw;
       height: 100vh;
       min-height: 100vh;
-      background-color: rgba($color-black-russian, 0.9);
+      background-color: $color-black-russian;
       transform: translateX(0);
       transition: transform $trans-default;
       z-index: 10;
@@ -51,7 +51,7 @@
     padding: 1rem;
     margin: -1rem;
     transition: color $trans-default;
-    @include hover-focus {
+    @include hover {
       color: $color-primary;
     }
     &.is-active {

@@ -1,5 +1,109 @@
-.footer {
-  padding: 40px 0;
+$footerHeight: 80px;
+$footerPadding: 30px;
 
-  background-color: $color-neon-blue;
+.footer {
+  width: 100%;
+  min-height: $footerHeight;
+  margin-top: calc($footerHeight * -1);
+  padding: $footerPadding 0 0;
+  background-color: $color-blue-zodiac;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  &__row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    & > * {
+      margin-bottom: $footerPadding;
+    }
+  }
+  &__col {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-height: 18px;
+    padding-right: 40px;
+    &:not(:first-of-type) {
+      border-left: 1px solid $color-silver;
+    }
+    &:not(:first-of-type) {
+      padding-left: 35px;
+    }
+    @include vp-1023 {
+      align-items: flex-start;
+      &--1 {
+        order: 3;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include vp-1023 {
+      display: block;
+    }
+    &-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      // position: relative;
+      // padding-left: 32px;
+      @include vp-1023 {
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+      }
+      & svg {
+        // position: absolute;
+        // left: 0;
+        // top: 50%;
+        // transform: translateY(-50%);
+        color: $color-primary;
+        transition: color $trans-default;
+        margin-right: 12px;
+      }
+      &:not(:last-of-type) {
+        margin-right: 40px;
+      }
+    }
+  }
+  &__copy {
+    color: $color-default-white;
+    &-company {
+      text-transform: uppercase;
+    }
+    @include vp-767 {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &__payments {
+    color: $color-silver;
+  }
+  &__contacts {
+    &-item {
+      // padding-left: 20px;
+    }
+    &-link {
+      // position: relative;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      margin: -1rem;
+      // padding-left: 32px;
+      color: $color-default-white;
+      transition: color $trans-default;
+      @include hover {
+        color: $color-primary;
+        & svg {
+          color: $color-default-white;
+        }
+      }
+    }
+  }
 }

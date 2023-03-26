@@ -1,3 +1,64 @@
 mixin footer(footerMods)
+
+  -
+    const data = {
+      year: "2023 ",
+      company: "«LoremIpsum.net» ",
+      rights: "Все права защищены.",
+      payments: [
+        {
+          icon: "icon-qiwi",
+          text: "Qiwi wallet"
+        },
+        {
+          icon: "icon-yoo-money",
+          text: "ЮMoney"
+        },
+        {
+          icon: "icon-web-money",
+          text: "Web Money"
+        }
+      ],
+      contacts: [
+        {
+          icon: "icon-envelope",
+          href: "mailto:info@ipsum228.com",
+          text: "info@ipsum228.com"
+        },
+        {
+          icon: "icon-vk",
+          href: "https://vk.com",
+          text: "Мы вконтакте",
+          target: "_blank",
+        }
+      ]
+    }
   footer.footer(class=footerMods)
     .container
+      .footer__row 
+        .footer__col.footer__col--1
+          .footer__copy
+            span.footer__copy-copyright &copy;&nbsp;
+            span.footer__copy-year=data.year
+            span.footer__copy-company=data.company
+            span.footer__copy-rights=data.rights
+        .footer__col.footer__col--2
+          .footer__payments
+            ul.footer__list.footer__payments-list
+              each item in data.payments
+                li.footer__list-item.footer__payments-item
+                  +icon(item.icon, 20, 20)
+                  span=item.text
+        .footer__col.footer__col--3
+          .footer__contacts
+            ul.footer__list.footer__contacts-list
+              each el in data.contacts 
+                li.footer__list-item.footer__contacts-item
+                  if (!el.target)
+                    a.footer__contacts-link(href=el.href)
+                      +icon(el.icon, 20, 20)
+                      span=el.text
+                  else
+                    a.footer__contacts-link(href=el.href, target=el.target, rel="noopener")
+                      +icon(el.icon, 20, 20)
+                      span=el.text
