@@ -1,10 +1,7 @@
-$footerHeight: 80px;
-$footerPadding: 30px;
-
 .footer {
   width: 100%;
   min-height: $footerHeight;
-  margin-top: calc($footerHeight * -1);
+  // margin-top: calc($footerHeight * -1);
   padding: $footerPadding 0 0;
   background-color: $color-blue-zodiac;
   font-weight: 400;
@@ -49,8 +46,6 @@ $footerPadding: 30px;
       flex: 1;
       display: flex;
       align-items: center;
-      // position: relative;
-      // padding-left: 32px;
       @include vp-1023 {
         &:not(:last-of-type) {
           margin-bottom: 1rem;
@@ -59,10 +54,6 @@ $footerPadding: 30px;
         }
       }
       & svg {
-        // position: absolute;
-        // left: 0;
-        // top: 50%;
-        // transform: translateY(-50%);
         color: $color-primary;
         transition: color $trans-default;
         margin-right: 12px;
@@ -86,16 +77,11 @@ $footerPadding: 30px;
     color: $color-silver;
   }
   &__contacts {
-    &-item {
-      // padding-left: 20px;
-    }
     &-link {
-      // position: relative;
       display: flex;
       align-items: center;
       padding: 1rem;
       margin: -1rem;
-      // padding-left: 32px;
       color: $color-default-white;
       transition: color $trans-default;
       @include hover {

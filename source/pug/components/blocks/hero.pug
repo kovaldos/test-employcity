@@ -1,0 +1,37 @@
+mixin hero(heroMods)
+	-
+		const data = {
+			titleColor1: "Lorem ipsum ",
+			title: "dolor sit amet consectetur ",
+			titleColor2: "adipiscing",
+			subtitle: "At vero eos et accusamus et iusto odio dignissimos ducimus!",
+			list: [
+				"Totam rem aperiam eaque ipsa",
+				"Sit voluptatem accusantium doloremque laudantium",
+				"Sed ut perspiciatis, unde omnis iste natus error"
+			],
+			btnOrder: {
+				text: "заказать"
+			},
+			btnMore: {
+				href: "/order-page",
+				text: "подробнее"
+			}
+		}
+	section.section.hero 
+		.hero__bg
+			+picture("content", "hero_bg", "png", 1920, 850, "Двое мужчин в синих деловых костюмах обсуждают сделку, глядя в документы")
+		.hero__wrapper
+			.container
+				.hero__content
+					h1.title.title--h1.hero__title 
+						span.hero__title-primary=data.titleColor1
+						span.hero__title-default=data.title
+						span.hero__title-primary=data.titleColor2
+					h2.title.title--h3.hero__subtitle=data.subtitle
+					ul.hero__list 
+						each item in data.list 
+							li.hero__list-item=item
+				.hero__actions 
+					+btn(data.btnOrder).btn--primary.hero__btn.hero__btn--order(data-target="order-main")
+					+btn(data.btnMore).btn--secondary.hero__btn.hero__btn--more

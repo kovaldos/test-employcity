@@ -1,9 +1,13 @@
 .header {
   width: 100%;
-  min-height: 100px;
+  min-height: $headerHeight;
   padding: 32px 0;
   background-color: rgba($color-black-russian, 0.9);
   position: fixed;
+  z-index: 12;
+  @include vp-1023 {
+    padding: 30px 0;
+  }
 
   .container {
     display: flex;
@@ -18,6 +22,7 @@
     height: 35px;
     display: flex;
     align-items: center;
+    z-index: 12;
     @include vp-767 {
       max-width: 150px;
     }

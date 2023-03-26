@@ -7,6 +7,7 @@ const initBurgerMenu = () => {
     burgerBtns.forEach((burgerBtn) => {
       burgerBtn.addEventListener('click', () => {
         document.body.classList.toggle('scroll-lock');
+        document.querySelector('main').classList.toggle('z-index-minus');
         burgerBtn.classList.toggle('is-active');
         menuBody.classList.toggle('is-active');
       });
