@@ -1,0 +1,364 @@
+.order-main {
+	background-color: $color-jaguar;
+	&__bg {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		picture {
+			display: block;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	}
+	&__wrapper {
+		position: relative;
+		@include vp-1023 {
+			overflow: hidden;
+			padding: 30px 20vw 0 20vw;
+		}
+	}
+	&__heading {
+		width: 100%;
+		text-align: center;
+		padding: 20px 0;
+	}
+	&__title {
+		margin-bottom: 30px;
+		text-transform: uppercase;
+		color: $color-default-white;
+		&-color {
+			color: $color-primary;
+		}
+	}
+	&__subtitle {
+		font-size: 18px;
+		line-height: 22px;
+		color: $color-silver;
+		@include vp-1023 {
+			font-size: 1rem;
+			line-height: 1.1;
+		}
+	}
+	&__scheme {
+		width: 100%;
+		padding: 60px 0;
+		position: relative;
+		@include vp-1023 {
+			margin-bottom: 30px;
+		}
+		@include vp-767 {
+			padding: 30px 0 0;
+		}
+		&-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: $color-primary;
+			border: 5px solid $color-endeavour;
+			margin: 0 0 20px;
+			flex-shrink: 0;
+			@include vp-1023 {
+				width: 60px;
+				height: 60px;
+				margin: 0 10px 0 0;
+				& svg {
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+	}
+	&__dots {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 6px;
+		overflow: hidden;
+		position: absolute;
+		top: 106px;
+		left: 100px;
+		right: 100px;
+		@include vp-1023 {
+			display: block;
+			bottom: 60px;
+			height: auto;
+			top: 92px;
+			left: 29px;
+			right: auto;
+		}
+		@include vp-767 {
+			left: 29px;
+		}
+	}
+	&__dot {
+		width: 6px;
+		height: 6px;
+		background-color: $color-silver;
+		border-radius: 50%;
+		flex-shrink: 0;
+		@include vp-1023 {
+			width: 4px;
+			height: 4px;
+		}
+		&:not(:last-child) {
+			margin: 0 20px 0 0;
+			@include vp-1023 {
+				margin: 0 0 12px;
+			}
+		}
+	}
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		@include vp-1023 {
+			flex-direction: column;
+		}
+		&-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			flex: 1;
+			color: $color-default-white;
+			font-size: 16px;
+			line-height: 19px;
+			position: relative;
+			&:not(:last-of-type) {
+				margin: 0 30px 0 0;
+				@include vp-1023 {
+					margin: 0 0 30px;
+				}
+			}
+			@include vp-1023 {
+				flex-direction: row;
+				text-align: left;
+			}
+		}
+	}
+	&__form {
+		width: 100%;
+		padding: 20px 0;
+		&-form {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-row-gap: 30px;
+			grid-column-gap: 30px;
+			& > * {
+				align-self: start;
+			}
+			@include vp-1023 {
+				grid-template-columns: 1fr;
+			}
+		}
+		&-field {
+			&.custom-select {
+				max-width: 100%;
+				padding: 0;
+				&:not(.is-open) {
+					@include hover {
+						.custom-select__button {
+							box-shadow: 0 0 5px 2px $color-primary;
+						}
+					}
+				}
+				.custom-select {
+					&__placeholder {
+						font-size: 18px;
+						line-height: 22px;
+						color: $color-jaguar;
+						transition: color $trans-default;
+					}
+					&__button {
+						background-color: rgba($color-default-white, 0.85);
+						color: $color-jaguar;
+						border: 1px solid $color-default-white;
+						border-radius: 3px;
+						font-size: 18px;
+						line-height: 22px;
+						transition: box-shadow $trans-default;
+						@include focus {
+							box-shadow: 0 0 5px 2px $color-primary;
+						}
+					}
+					&__list {
+						color: $color-default-white;
+						font-size: 18px;
+						line-height: 34px;
+						bottom: 0px;
+						border: 0;
+						background-color: $color-blue-zodiac;
+						border: 1px solid $color-blue-zodiac;
+						border-radius: 0 0 3px 3px;
+						z-index: 2;
+						max-height: 180px;
+					}
+					&__item {
+						transition: color $trans-default;
+						@include hover-focus {
+							background-color: $color-transparent;
+							color: $color-primary;
+						}
+					}
+					&__icon {
+						width: 9px;
+						height: 5px;
+						transition: background-color $trans-default;
+					}
+				}
+				&.is-open {
+					.custom-select {
+						&__placeholder {
+							color: $color-default-white;
+						}
+						&__button {
+							background-color: rgba($color-blue-zodiac, 0.85);
+							border-color: rgba($color-blue-zodiac, 0.85);
+							border-radius: 3px 3px 0px 0px;
+							color: $color-default-white;
+						}
+						&__icon {
+							background-color: $color-default-white;
+						}
+					}
+				}
+			}
+			&.custom-input {
+				width: 100%;
+				padding: 0;
+				label {
+					input {
+						max-width: 100%;
+						margin-left: 0;
+						border-radius: 3px;
+						background-color: rgba($color-default-white, 0.85);
+						color: $color-jaguar;
+						border: 1px solid $color-default-white;
+						border-radius: 3px;
+						font-size: 18px;
+						line-height: 22px;
+						transition: box-shadow $trans-default;
+						&::placeholder {
+							color: $color-jaguar;
+						}
+						@include hover-focus {
+							box-shadow: 0 0 5px 2px $color-primary;
+						}
+					}
+				}
+			}
+			&.size-range {
+				grid-column-start: 1;
+				grid-column-end: 3;
+				@include vp-1023 {
+					grid-column-start: 1;
+					grid-column-end: 2;
+				}
+				.size-range {
+					&__label {
+						display: flex;
+						flex-direction: column;
+						font-size: 18px;
+						line-height: 22px;
+						color: $color-default-white;
+						&-row {
+							display: flex;
+							justify-content: space-between;
+							margin-bottom: 18px;
+						}
+						&-text {
+							display: inline-block;
+							flex: 1;
+						}
+						&-percent {
+							color: rgba($color-default-white, 0.85);
+						}
+					}
+					&__input {
+						height: 7px;
+						.noUi-base {
+							width: calc(100% - 10px);
+						}
+						.noUi-connects {
+							background-color: rgba($color-default-white, 0.7);
+							border: 1px solid $color-default-white;
+						}
+
+						.noUi-handle {
+							cursor: grab;
+							width: 25px;
+							height: 25px;
+							border-radius: 50%;
+							top: -10px;
+							background-color: $color-primary;
+							border: 3px solid $color-endeavour;
+							box-shadow: none;
+							&::before,
+							&::after {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			&.input-upload {
+				margin-bottom: 0;
+				.input-upload {
+					&__btn {
+						min-height: 48px;
+						border-radius: 3px;
+						width: 100%;
+						text-transform: uppercase;
+						font-size: 15px;
+						line-height: 18px;
+						font-weight: 700;
+						svg {
+							margin-right: 10px;
+						}
+					}
+					&__preview {
+						padding-top: 20px;
+						&-item {
+							margin-top: 0;
+							color: $color-default-white;
+							border-color: $color-default-white;
+							&-remove {
+								background-color: $color-primary;
+							}
+						}
+						&-icon {
+							background-color: rgba($color-default-white, 0.7);
+							border-radius: 3px;
+						}
+					}
+				}
+			}
+		}
+		&-actions {
+			text-align: center;
+			grid-column-start: 1;
+			grid-column-end: 4;
+			@include vp-1023 {
+				grid-column-start: 1;
+				grid-column-end: 2;
+			}
+		}
+		&-submit {
+			min-width: 370px;
+			font-weight: 700;
+			font-size: 15px;
+			line-height: 18px;
+			text-transform: uppercase;
+			color: $color-default-white;
+			@include vp-767 {
+				width: 100%;
+				min-width: unset;
+			}
+		}
+	}
+}

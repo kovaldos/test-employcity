@@ -55,12 +55,14 @@
     "imagemin-mozjpeg": "10.0.0",
     "imagemin-pngquant": "9.0.2",
     "imagemin-svgo": "10.0.1",
+    "nouislider": "^15.7.0",
     "postcss-scss": "^4.0.6",
     "sass": "1.53.0",
     "stylelint": "^14.16.1",
     "stylelint-config-htmlacademy": "1.1.4",
     "webpack": "4.42.0",
-    "webpack-stream": "5.2.1"
+    "webpack-stream": "5.2.1",
+    "wnumb": "^1.2.0"
   },
   "engines": {
     "node": ">=16.15.1"

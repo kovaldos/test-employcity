@@ -1,0 +1,60 @@
+mixin order-main(mods)
+	-
+		const data = {
+			title: "Оформление  ",
+			titleColor: "Заказа",
+			subtitle: "Перед заполнением формы ознакомьтесь с нашей схемой работы!",
+			list: [
+				{
+					icon: "icon-search",
+					text: "Lorem ipsum dolor sit amet"
+				},
+				{
+					icon: "icon-percent",
+					text: "Сonsecteturadipiscing elit"
+				},
+				{
+					icon: "icon-doc-plus",
+					text: "Sed do eiusmod tempor"
+				},
+				{
+					icon: "icon-envelope",
+					text: "Esse cillum dolore eu fugiat"
+				},
+				{
+					icon: "icon-money",
+					text: "Excepteur sint occaecat cupidatat non proident"
+				},
+				//- {
+				//- 	icon: "icon-money",
+				//- 	text: "Excepteur sint occaecat cupidatat non proident"
+				//- },
+				//- {
+				//- 	icon: "icon-money",
+				//- 	text: "Excepteur sint occaecat cupidatat non proident"
+				//- },
+				
+			],
+		}
+
+	section.section.order-main#order-main
+		.order-main__bg
+			+picture("content", "main_bg", "png", 1920, 920, "Карта мира, нарисованная светлыми точками")
+		.order-main__wrapper 
+			.container
+				.order-main__heading
+					h2.title.title--h2.order-main__title
+						span.order-main__title-default=data.title
+						span.order-main__title-color=data.titleColor
+					span.order-main__subtitle=data.subtitle
+				.order-main__scheme
+					ul.dots__list.order-main__dots
+						- for (let i = 0; i < 35; i++)
+							li.dots__dot.order-main__dot
+					ul.order-main__list 
+						each item, index in data.list 
+							li.order-main__list-item 
+								.order-main__scheme-icon
+									+icon(item.icon, 38, 38)
+								span.order-main__scheme-text=item.text
+				+order-form("main")

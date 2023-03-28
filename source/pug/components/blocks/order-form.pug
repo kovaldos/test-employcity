@@ -1,0 +1,66 @@
+mixin order-form(mods)
+	-
+		const data = {
+			select: {
+				placeholder: "Выберите тип системы",
+				optionsList: [
+					{
+						value: "option-1",
+						text: "Sed ut perspiciatis"
+					},
+					{
+						value: "option-2",
+						text: "Nemo enim ipsam"
+					},
+					{
+						value: "option-2",
+						text: "Et harum quidem"
+					},
+					{
+						value: "option-2",
+						text: "Temporibus autem"
+					},
+					{
+						value: "option-2",
+						text: "Itaque earum rerum"
+					},
+				]
+			},
+			email: {
+				inputPlaceholder: "Ваш e-mail",
+			},
+			firstName: {
+				inputPlaceholder: "Ваше имя",
+			},
+			range: {
+				text: "Sed ut perspiciatis, unde omnis iste natus"
+			},
+			upload: {
+				text: "Прикрепить файл"
+			},
+			btn: {
+				type: "submit",
+				text: "Отправить"
+			}
+		}
+	if mods === "main"
+		.order-main__form(data-form-validate)
+			form.order-main__form-form(action="/")
+				+custom-select(data.select).order-main__form-field.custom-select(data-select data-name="system-type" data-required data-validate-type="select")
+				+custom-input(data.email).order-main__form-field(data-validate-type="email" data-required)
+				+custom-input(data.firstName).order-main__form-field(data-validate-type="text" data-required)
+				.order-main__form-field.size-range
+					label.order-main__form-label.size-range__label
+						span.size-range__label-row
+							span.size-range__label-text=data.range.text
+							span.size-range__percent#size-range__percent
+							span &nbsp;%
+						.size-range__input#size-range
+				.order-main__form-field.input-upload.input-upload--file(data-upload="file")
+					label
+						input(type="file", name="upload-file")
+						span.btn.btn--secondary.input-upload__btn
+							+icon("icon-doc", 17, 20)
+							span=data.upload.text
+				.order-main__form-actions
+					+btn(data.btn).btn--primary.order-main__form-submit
