@@ -2367,9 +2367,9 @@ ol[class] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   height: 6px;
   overflow: hidden;
   position: absolute;
@@ -2385,10 +2385,6 @@ ol[class] {
   border-radius: 50%;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-}
-
-.order-main__dot:not(:last-child) {
-  margin: 0 20px 0 0;
 }
 
 .order-main__list {
@@ -2981,7 +2977,7 @@ ol[class] {
   }
 
   .order-main__dot:not(:last-child) {
-    margin: 0 0 12px;
+    margin: 0 0 11px;
   }
 
   .order-main__list {
@@ -3090,6 +3086,10 @@ ol[class] {
 
   .hero__list {
     padding: 0;
+  }
+
+  .order-main__wrapper {
+    padding: 30px 0 0;
   }
 
   .order-main__scheme {
