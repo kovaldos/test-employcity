@@ -43,7 +43,7 @@
     "gulp-cached": "1.1.1",
     "gulp-csso": "4.0.1",
     "gulp-group-css-media-queries": "1.2.2",
-    "gulp-imagemin": "7.1.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "9.0.1",
     "gulp-pug": "5.0.0",
