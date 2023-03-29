@@ -772,6 +772,245 @@ template {
   right: 28px;
 }
 
+[data-simplebar] {
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.simplebar-wrapper {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.simplebar-mask {
+  direction: inherit;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: auto !important;
+  height: auto !important;
+  z-index: 0;
+}
+
+.simplebar-offset {
+  direction: inherit !important;
+  -webkit-box-sizing: inherit !important;
+  box-sizing: inherit !important;
+  resize: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.simplebar-content-wrapper {
+  direction: inherit;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  position: relative;
+  display: block;
+  height: 100%;
+  /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
+  width: auto;
+  max-width: 100%;
+  /* Not required for horizontal scroll to trigger */
+  max-height: 100%;
+  /* Needed for vertical scroll to trigger */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.simplebar-content:before,
+.simplebar-content:after {
+  content: " ";
+  display: table;
+}
+
+.simplebar-placeholder {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.simplebar-height-auto-observer-wrapper {
+  -webkit-box-sizing: inherit !important;
+  box-sizing: inherit !important;
+  height: 100%;
+  width: 100%;
+  max-width: 1px;
+  position: relative;
+  float: left;
+  max-height: 1px;
+  overflow: hidden;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  -webkit-box-flex: inherit;
+  -ms-flex-positive: inherit;
+  flex-grow: inherit;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+}
+
+.simplebar-height-auto-observer {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000%;
+  width: 1000%;
+  min-height: 1px;
+  min-width: 1px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.simplebar-track {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-content {
+  pointer-events: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-track {
+  pointer-events: all;
+}
+
+.simplebar-scrollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 10px;
+}
+
+.simplebar-scrollbar:before {
+  position: absolute;
+  content: "";
+  background: black;
+  border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.simplebar-scrollbar.simplebar-visible:before {
+  /* When hovered, remove all transitions from drag handle */
+  opacity: 0.5;
+  -webkit-transition: opacity 0s linear;
+  -o-transition: opacity 0s linear;
+  transition: opacity 0s linear;
+}
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 11px;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  top: 2px;
+  bottom: 2px;
+}
+
+.simplebar-track.simplebar-horizontal {
+  left: 0;
+  height: 11px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar:before {
+  height: 100%;
+  left: 2px;
+  right: 2px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+  right: auto;
+  left: 0;
+  top: 2px;
+  height: 7px;
+  min-height: 0;
+  min-width: 10px;
+  width: auto;
+}
+
+/* Rtl support */
+
+[data-simplebar-direction=rtl] .simplebar-track.simplebar-vertical {
+  right: auto;
+  left: 0;
+}
+
+.hs-dummy-scrollbar-size {
+  direction: rtl;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  height: 500px;
+  width: 500px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.simplebar-hide-scrollbar {
+  position: fixed;
+  left: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 /* lato-regular - latin */
 
 @font-face {
@@ -2470,8 +2709,8 @@ ol[class] {
 }
 
 .order-main__form-field.custom-select .custom-select__button.focus-visible:focus {
-  -webkit-box-shadow: 0 0 5px 2px #3E9CDC;
-  box-shadow: 0 0 5px 2px #3E9CDC;
+  -webkit-box-shadow: 0 0 5px 2px #ffffff;
+  box-shadow: 0 0 5px 2px #ffffff;
 }
 
 .order-main__form-field.custom-select .custom-select__list {
@@ -2506,6 +2745,12 @@ ol[class] {
   transition: background-color 0.3s ease;
 }
 
+.order-main__form-field.custom-select .custom-select__error {
+  bottom: -25px;
+  right: 0;
+  left: auto;
+}
+
 .order-main__form-field.custom-select.is-open .custom-select__placeholder {
   color: #ffffff;
 }
@@ -2519,6 +2764,20 @@ ol[class] {
 
 .order-main__form-field.custom-select.is-open .custom-select__icon {
   background-color: #ffffff;
+}
+
+.order-main__form-field.custom-select.is-invalid .custom-select__button {
+  border-color: #ff1553;
+}
+
+.order-main__form-field.custom-select .simplebar-track.simplebar-vertical {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+.order-main__form-field.custom-select .simplebar-scrollbar {
+  border-radius: 3px;
+  background-color: #3E9CDC;
 }
 
 .order-main__form-field.custom-input {
@@ -2564,8 +2823,16 @@ ol[class] {
 }
 
 .order-main__form-field.custom-input label input.focus-visible:focus {
-  -webkit-box-shadow: 0 0 5px 2px #3E9CDC;
-  box-shadow: 0 0 5px 2px #3E9CDC;
+  -webkit-box-shadow: 0 0 5px 2px #ffffff;
+  box-shadow: 0 0 5px 2px #ffffff;
+}
+
+.order-main__form-field.custom-input.is-invalid label input {
+  border-color: #ff1553;
+}
+
+.order-main__form-field.custom-input .input-message {
+  bottom: -25px;
 }
 
 .order-main__form-field.size-range {
@@ -2659,11 +2926,12 @@ ol[class] {
 }
 
 .order-main__form-field.input-upload .input-upload__preview {
-  padding-top: 20px;
+  padding: 0;
+  gap: 0;
 }
 
 .order-main__form-field.input-upload .input-upload__preview-item {
-  margin-top: 0;
+  margin-top: 10px;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2675,6 +2943,15 @@ ol[class] {
 .order-main__form-field.input-upload .input-upload__preview-icon {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 3px;
+}
+
+.order-main__form-field.input-upload .input-upload__message {
+  bottom: -25px;
+  color: #ff1553;
+}
+
+.order-main__form-field.input-upload.is-invalid .input-upload__btn {
+  border-color: #ff1553;
 }
 
 .order-main__form-actions {
@@ -3100,6 +3377,18 @@ ol[class] {
     left: 29px;
   }
 
+  .order-main__form-field.custom-select .custom-select__error {
+    font-size: 13px;
+  }
+
+  .order-main__form-field.custom-input .input-message {
+    font-size: 13px;
+  }
+
+  .order-main__form-field.input-upload .input-upload__message {
+    font-size: 13px;
+  }
+
   .order-main__form-submit {
     width: 100%;
     min-width: unset;
@@ -3203,8 +3492,8 @@ ol[class] {
   }
 
   .order-main__form-field.custom-select:not(.is-open):hover:not(.focus-visible) .custom-select__button {
-    -webkit-box-shadow: 0 0 5px 2px #3E9CDC;
-    box-shadow: 0 0 5px 2px #3E9CDC;
+    -webkit-box-shadow: 0 0 5px 2px #ffffff;
+    box-shadow: 0 0 5px 2px #ffffff;
   }
 
   .order-main__form-field.custom-select .custom-select__item:hover:not(.focus-visible) {
@@ -3213,8 +3502,8 @@ ol[class] {
   }
 
   .order-main__form-field.custom-input label input:hover:not(.focus-visible) {
-    -webkit-box-shadow: 0 0 5px 2px #3E9CDC;
-    box-shadow: 0 0 5px 2px #3E9CDC;
+    -webkit-box-shadow: 0 0 5px 2px #ffffff;
+    box-shadow: 0 0 5px 2px #ffffff;
   }
 
   .footer__contacts-link:hover:not(.focus-visible) {

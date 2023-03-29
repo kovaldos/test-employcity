@@ -2,13 +2,16 @@ const createNativeOptionsMarkup = (items, activeIndex) => {
   return items.map((el, index) => {
     if (activeIndex.length) {
       const currentIndex = activeIndex.find((item) => item === index);
+      // console.log('selected');
       if (currentIndex === index) {
-        return `<option ${el.value ? `value=${el.value}` : ''} selected>${el.text ? `${el.text}` : ''}</option>`;
+        return `<option ${el.value ? `value=${el.value.replace(/\s/g, '&nbsp;', el.value)}` : ''} selected>${el.text ? `${el.text}` : ''}</option>`;
       } else {
-        return `<option ${el.value ? `value=${el.value}` : ''}>${el.text ? `${el.text}` : ''}</option>`;
+        // console.log(123);
+        return `<option ${el.value ? `value=${el.value.replace(/\s/g, '&nbsp;', el.value)}` : ''}>${el.text ? `${el.text}` : ''}</option>`;
       }
     } else {
-      return `<option ${el.value ? `value=${el.value}` : ''}>${el.text ? `${el.text}` : ''}</option>`;
+      // console.log(456);
+      return `<option ${el.value ? `value=${el.value.replace(/\s/g, '&nbsp;', el.value)}` : ''}>${el.text ? `${el.text}` : ''}</option>`;
     }
   }).join('\n');
 };
@@ -21,3 +24,4 @@ export const createNativeSelectMarkup = ({id, items, multiple, name, required, a
             ${createNativeOptionsMarkup(items, activeIndex)}
           </select>`;
 };
+
