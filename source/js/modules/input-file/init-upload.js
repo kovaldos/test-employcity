@@ -19,7 +19,7 @@ export const uploadFile = () => new Upload(uploadFileBlock, {
     fileSize: true,
   },
   successMessage: 'Файлы добавлены',
-  emptyMessage: 'Добавление файла обязательно',
+  emptyMessage: '',
   errorMessage: 'Общий размер файлов слишком большой',
 });
 

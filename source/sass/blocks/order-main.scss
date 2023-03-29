@@ -166,7 +166,7 @@
 				&:not(.is-open) {
 					@include hover {
 						.custom-select__button {
-							box-shadow: 0 0 5px 2px $color-primary;
+							box-shadow: 0 0 5px 2px $color-default-white;
 						}
 					}
 				}
@@ -186,7 +186,7 @@
 						line-height: 22px;
 						transition: box-shadow $trans-default;
 						@include focus {
-							box-shadow: 0 0 5px 2px $color-primary;
+							box-shadow: 0 0 5px 2px $color-default-white;
 						}
 					}
 					&__list {
@@ -213,6 +213,14 @@
 						height: 5px;
 						transition: background-color $trans-default;
 					}
+					&__error {
+						bottom: -25px;
+						right: 0;
+						left: auto;
+						@include vp-767 {
+							font-size: 13px;
+						}
+					}
 				}
 				&.is-open {
 					.custom-select {
@@ -229,6 +237,21 @@
 							background-color: $color-default-white;
 						}
 					}
+				}
+				&.is-invalid {
+					.custom-select {
+						&__button {
+							border-color: $color-error;
+						}
+					}
+				}
+				& .simplebar-track.simplebar-vertical {
+					background-color: rgba($color-default-black, 0.4);
+					border-radius: 3px;
+				}
+				& .simplebar-scrollbar {
+					border-radius: 3px;
+					background-color: $color-primary;
 				}
 			}
 			&.custom-input {
@@ -250,8 +273,21 @@
 							color: $color-jaguar;
 						}
 						@include hover-focus {
-							box-shadow: 0 0 5px 2px $color-primary;
+							box-shadow: 0 0 5px 2px $color-default-white;
 						}
+					}
+				}
+				&.is-invalid {
+					label {
+						input {
+							border-color: $color-error;
+						}
+					}
+				}
+				& .input-message {
+					bottom: -25px;
+					@include vp-767 {
+						font-size: 13px;
 					}
 				}
 			}
@@ -325,9 +361,10 @@
 						}
 					}
 					&__preview {
-						padding-top: 20px;
+						padding: 0;
+						gap: 0;
 						&-item {
-							margin-top: 0;
+							margin-top: 10px;
 							color: $color-default-white;
 							border-color: $color-default-white;
 							&-remove {
@@ -337,6 +374,20 @@
 						&-icon {
 							background-color: rgba($color-default-white, 0.7);
 							border-radius: 3px;
+						}
+					}
+					&__message {
+						bottom: -25px;
+						color: $color-error;
+						@include vp-767 {
+							font-size: 13px;
+						}
+					}
+				}
+				&.is-invalid {
+					.input-upload {
+						&__btn {
+							border-color: $color-error;
 						}
 					}
 				}

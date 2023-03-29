@@ -3,34 +3,46 @@ mixin order-form(mods)
 		const data = {
 			select: {
 				placeholder: "Выберите тип системы",
+				error: "Выберите один из вариантов",
+				simplebar: true,
 				optionsList: [
 					{
-						value: "option-1",
+						value: "system-1",
 						text: "Sed ut perspiciatis"
 					},
 					{
-						value: "option-2",
+						value: "system-2",
 						text: "Nemo enim ipsam"
 					},
 					{
-						value: "option-2",
+						value: "system-3",
 						text: "Et harum quidem"
 					},
 					{
-						value: "option-2",
+						value: "system-4",
 						text: "Temporibus autem"
 					},
 					{
-						value: "option-2",
+						value: "system-5",
 						text: "Itaque earum rerum"
+					},
+					{
+						value: "system-6",
+						text: "Itaque earum rerum lorem"
+					},
+					{
+						value: "system-7",
+						text: "Itaque earum rerum ipsum"
 					},
 				]
 			},
 			email: {
 				inputPlaceholder: "Ваш e-mail",
+				inputName: "email"
 			},
 			firstName: {
 				inputPlaceholder: "Ваше имя",
+				inputName: "firstName"
 			},
 			range: {
 				text: "Sed ut perspiciatis, unde omnis iste natus"
@@ -44,11 +56,11 @@ mixin order-form(mods)
 			}
 		}
 	if mods === "main"
-		.order-main__form(data-form-validate)
+		.order-main__form(data-form-validate data-callback="base")
 			form.order-main__form-form(action="/")
-				+custom-select(data.select).order-main__form-field.custom-select(data-select data-name="system-type" data-required data-validate-type="select")
-				+custom-input(data.email).order-main__form-field(data-validate-type="email" data-required)
-				+custom-input(data.firstName).order-main__form-field(data-validate-type="text" data-required)
+				+custom-select(data.select).order-main__form-field.custom-select(data-select, data-validate-type="select",  data-id="order-main-select-id", data-name="system-type" data-required="true", data-insert="true")
+				+custom-input(data.email).order-main__form-field(data-validate-type="email" data-required data-message-base="Введите email" data-message-extra="Проверьте правильность введенных данных")
+				+custom-input(data.firstName).order-main__form-field(data-validate-type="text" data-required data-message-base="Введите Ваше имя" data-message-extra="Допускаются только буквы" data-limitation="name")
 				.order-main__form-field.size-range
 					label.order-main__form-label.size-range__label
 						span.size-range__label-row
@@ -56,10 +68,10 @@ mixin order-form(mods)
 							span.size-range__percent#size-range__percent
 							span &nbsp;%
 						.size-range__input#size-range
-				.order-main__form-field.input-upload.input-upload--file(data-upload="file")
+				.order-main__form-field.custom-input.input-upload.input-upload--file(data-upload="file" data-validate-type="file" data-max-size="1048576" data-required data-message-base="Добавьте файл(ы)")
 					label
-						input(type="file", name="upload-file")
-						span.btn.btn--secondary.input-upload__btn
+						input(type="file", name="upload-file" tabindex=-1)
+						span.btn.btn--secondary.input-upload__btn(tabindex=0)
 							+icon("icon-doc", 17, 20)
 							span=data.upload.text
 				.order-main__form-actions

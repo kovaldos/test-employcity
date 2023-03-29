@@ -189,26 +189,28 @@
                   </li>
                 </ul>
               </div>
-              <div class="order-main__form" data-form-validate>
+              <div class="order-main__form" data-form-validate data-callback="base">
                 <form class="order-main__form-form" action="/">
-                  <div class="order-main__form-field custom-select" data-select data-name="system-type" data-required data-validate-type="select"><span class="custom-select__placeholder">Выберите тип системы</span>
+                  <div class="order-main__form-field custom-select" data-select data-validate-type="select" data-id="order-main-select-id" data-name="system-type" data-required="true" data-insert="true"><span class="custom-select__error">Выберите один из вариантов</span><span class="custom-select__placeholder">Выберите тип системы</span>
                     <button class="custom-select__button" type="button" aria-label="Выберите одну из опций"><span class="custom-select__text"></span><span class="custom-select__icon"></span></button>
-                    <ul class="custom-select__list" role="listbox">
-                      <li class="custom-select__item" tabindex="0" data-select-value="option-1" aria-selected="false" role="option">Sed ut perspiciatis</li>
-                      <li class="custom-select__item" tabindex="0" data-select-value="option-2" aria-selected="false" role="option">Nemo enim ipsam</li>
-                      <li class="custom-select__item" tabindex="0" data-select-value="option-2" aria-selected="false" role="option">Et harum quidem</li>
-                      <li class="custom-select__item" tabindex="0" data-select-value="option-2" aria-selected="false" role="option">Temporibus autem</li>
-                      <li class="custom-select__item" tabindex="0" data-select-value="option-2" aria-selected="false" role="option">Itaque earum rerum</li>
+                    <ul class="custom-select__list" role="listbox" data-simplebar>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-1" aria-selected="false" role="option">Sed ut perspiciatis</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-2" aria-selected="false" role="option">Nemo enim ipsam</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-3" aria-selected="false" role="option">Et harum quidem</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-4" aria-selected="false" role="option">Temporibus autem</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-5" aria-selected="false" role="option">Itaque earum rerum</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-6" aria-selected="false" role="option">Itaque earum rerum lorem</li>
+                      <li class="custom-select__item" tabindex="0" data-select-value="system-7" aria-selected="false" role="option">Itaque earum rerum ipsum</li>
                     </ul>
                   </div>
-                  <div class="custom-input order-main__form-field" data-validate-type="email" data-required>
+                  <div class="custom-input order-main__form-field" data-validate-type="email" data-required data-message-base="Введите email" data-message-extra="Проверьте правильность введенных данных">
                     <label>
-                      <input type="text" placeholder="Ваш e-mail">
+                      <input type="text" name="email" placeholder="Ваш e-mail">
                     </label>
                   </div>
-                  <div class="custom-input order-main__form-field" data-validate-type="text" data-required>
+                  <div class="custom-input order-main__form-field" data-validate-type="text" data-required data-message-base="Введите Ваше имя" data-message-extra="Допускаются только буквы" data-limitation="name">
                     <label>
-                      <input type="text" placeholder="Ваше имя">
+                      <input type="text" name="firstName" placeholder="Ваше имя">
                     </label>
                   </div>
                   <div class="order-main__form-field size-range">
@@ -216,9 +218,9 @@
                       <div class="size-range__input" id="size-range"></div>
                     </label>
                   </div>
-                  <div class="order-main__form-field input-upload input-upload--file" data-upload="file">
+                  <div class="order-main__form-field custom-input input-upload input-upload--file" data-upload="file" data-validate-type="file" data-max-size="1048576" data-required data-message-base="Добавьте файл(ы)">
                     <label>
-                      <input type="file" name="upload-file"><span class="btn btn--secondary input-upload__btn">
+                      <input type="file" name="upload-file" tabindex="-1"><span class="btn btn--secondary input-upload__btn" tabindex="0">
                         <svg width="17" height="20" aria-hidden="true">
                           <use xlink:href="#icon-doc"></use>
                         </svg><span>Прикрепить файл</span></span>
@@ -279,6 +281,20 @@
           </div>
         </div>
       </footer>
+    </div>
+    <div class="modal modal--preload success" data-modal="order-main-success">
+      <div class="modal__wrapper">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <h2 class="title title--h3 modal-success__title">Ваша заявка успешно отправлена!</h2>
+          <p class="modal-success__text">Наш менеджер свяжется Вами в течении нескольких минут!</p>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
     <script src="js/vendor.min.js"></script>
     <script src="js/main.min.js"></script>

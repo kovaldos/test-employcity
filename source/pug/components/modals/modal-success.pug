@@ -1,4 +1,4 @@
-mixin modal-success()
-  p.modal__description Размер этой модалки зависит от ширины контента,
-    br
-    | отключена анимация-скейл
+mixin modal-success(mods)
+  if mods === "order-main"
+    h2.title.title--h3.modal-success__title Ваша заявка успешно отправлена!
+    p.modal-success__text Наш менеджер свяжется Вами в течении нескольких минут!
