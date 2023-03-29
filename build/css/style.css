@@ -2530,6 +2530,7 @@ ol[class] {
 
 .order-main {
   background-color: #272733;
+  padding: 100px 0 130px;
 }
 
 .order-main__bg {
@@ -2908,7 +2909,7 @@ ol[class] {
 }
 
 .order-main__form-field.input-upload {
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 
 .order-main__form-field.input-upload .input-upload__btn {

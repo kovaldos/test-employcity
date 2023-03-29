@@ -1,5 +1,6 @@
 .order-main {
 	background-color: $color-jaguar;
+	padding: 100px 0 130px;
 	&__bg {
 		position: absolute;
 		top: 0;
@@ -346,7 +347,7 @@
 				}
 			}
 			&.input-upload {
-				margin-bottom: 0;
+				margin-bottom: 30px;
 				.input-upload {
 					&__btn {
 						min-height: 48px;
