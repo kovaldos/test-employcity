@@ -113,7 +113,7 @@
                 <h2 class="title title--h2 order-main__title"><span class="order-main__title-default">Оформление  </span><span class="order-main__title-color">Заказа</span></h2><span class="order-main__subtitle">Перед заполнением формы ознакомьтесь с нашей схемой работы!</span>
               </div>
               <div class="order-main__scheme">
-                <ul class="dots__list order-main__dots">
+                <ul class="order-main__dots dots">
                   <li class="dots__dot order-main__dot"></li>
                   <li class="dots__dot order-main__dot"></li>
                   <li class="dots__dot order-main__dot"></li>
@@ -214,9 +214,8 @@
                     </label>
                   </div>
                   <div class="order-main__form-field size-range">
-                    <label class="order-main__form-label size-range__label"><span class="size-range__label-row"><span class="size-range__label-text">Sed ut perspiciatis, unde omnis iste natus</span><span class="size-range__percent" id="size-range__percent"></span><span>&nbsp;%</span></span>
-                      <div class="size-range__input" id="size-range"></div>
-                    </label>
+                    <div class="size-range__row"><span class="size-range__text">Sed ut perspiciatis, unde omnis iste natus</span><span class="size-range__percent size-range__percent--val" id="size-range-percent"></span><span class="size-range__percent">&nbsp;&#37;</span></div>
+                    <div class="size-range__input" id="size-range"></div>
                   </div>
                   <div class="order-main__form-field custom-input input-upload input-upload--file" data-upload="file" data-validate-type="file" data-max-size="1048576" data-required data-message-base="Добавьте файл(ы)">
                     <label>
@@ -282,7 +281,7 @@
         </div>
       </footer>
     </div>
-    <div class="modal modal--preload success" data-modal="order-main-success">
+    <div class="modal modal--preload modal-success" data-modal="order-main-success">
       <div class="modal__wrapper">
         <div class="modal__overlay" data-close-modal></div>
         <div class="modal__content">
