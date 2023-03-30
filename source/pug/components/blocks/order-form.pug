@@ -62,12 +62,11 @@ mixin order-form(mods)
 				+custom-input(data.email).order-main__form-field(data-validate-type="email" data-required data-message-base="Введите email" data-message-extra="Проверьте правильность введенных данных")
 				+custom-input(data.firstName).order-main__form-field(data-validate-type="text" data-required data-message-base="Введите Ваше имя" data-message-extra="Допускаются только буквы" data-limitation="name")
 				.order-main__form-field.size-range
-					label.order-main__form-label.size-range__label
-						span.size-range__label-row
-							span.size-range__label-text=data.range.text
-							span.size-range__percent#size-range__percent
-							span &nbsp;%
-						.size-range__input#size-range
+					.size-range__row
+						span.size-range__text=data.range.text
+						span.size-range__percent.size-range__percent--val#size-range-percent
+						span.size-range__percent &nbsp;&#37;
+					.size-range__input#size-range
 				.order-main__form-field.custom-input.input-upload.input-upload--file(data-upload="file" data-validate-type="file" data-max-size="1048576" data-required data-message-base="Добавьте файл(ы)")
 					label
 						input(type="file", name="upload-file" tabindex=-1)

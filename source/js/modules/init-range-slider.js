@@ -16,7 +16,7 @@ const initRangeSlider = () => {
         decimals: 0,
       }),
     });
-    let rangeSliderValueElement = document.getElementById('size-range__percent');
+    let rangeSliderValueElement = document.getElementById('size-range-percent');
 
     rangeSlider.noUiSlider.on('update', function (values, handle) {
       rangeSliderValueElement.innerHTML = values[handle];
